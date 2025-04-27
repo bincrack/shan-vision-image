@@ -48,6 +48,13 @@ export async function onRequestPost(context) {
         if (!fileId) {
             throw new Error('Failed to get file ID');
         }
+        return new Response(
+            JSON.stringify({ fileId: fileId, fileExtension: fileExtension }),
+            {
+                status: 200,
+                headers: { 'Content-Type': 'application/json' }
+            }
+        );
 
         // 将文件信息保存到 KV 存储
         if (env.img_url) {
