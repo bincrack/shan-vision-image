@@ -3,6 +3,7 @@ export async function onRequestPost(context) {
     return new Response(
         JSON.stringify({ 
             v: "0.2",
+            TG_Chat_ID: env.TG_Chat_ID,
             TG_Bot_Token: env.TG_Bot_Token
         }),
         {
